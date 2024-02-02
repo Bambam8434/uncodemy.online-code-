@@ -1,0 +1,31 @@
+# .htaccess
+
+# Enable mod_rewrite
+RewriteEngine On
+
+# Redirect from /Course/data-science.html to new URL
+Redirect 301 /Course/data-science.html http://uncodemy.online/Course/data-science-training-course-in-noida.html
+
+# Redirect from /Course/data-analytics to new URL
+Redirect 301 /Course/data-analytics http://uncodemy.online/Course/data-analytics-training-course-in-noida.html
+
+# Redirect from /Course/java/ to new URL
+Redirect 301 /Course/java/ http://uncodemy.online/Course/java-training-course-in-noida.html
+
+# Redirect from /Course/software-testing.html to new URL
+Redirect 301 /Course/software-testing.html http://uncodemy.online/Course/software-testing-training-course-in-noida.html
+
+# Redirect from /Course/full-stack-development to new URL
+Redirect 301 /Course/full-stack-development http://uncodemy.online/Course/full-stack-development-training-course-in-noida.html
+
+# Redirect from /Course/digital-marketing/ to new URL
+Redirect 301 /Course/digital-marketing/ http://uncodemy.online/Course/digital-marketing-training-course-in-noida.html
+
+# Remove .html extension
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([^/]+)/$ $1.html [L]
+
+# Force trailing slash for directories
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^(.*[^/])$ /$1/ [L,R=301]
